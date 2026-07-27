@@ -1,8 +1,10 @@
+import Layout from "../../components/layout/Layout";
+
 function PostLoad() {
   return (
-    <div>
-      <h1>Post Load</h1>
-    </div>
+    <Layout>
+      <h1 className="text-3xl font-bold">Post New Load</h1>
+    </Layout>
   );
 }
 

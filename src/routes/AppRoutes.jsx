@@ -5,6 +5,7 @@ import Register from "../pages/auth/Register";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import RoleSelection from "../pages/auth/RoleSelection";
 import Dashboard from "../pages/freight-owner/Dashboard";
+import PostLoad from "../pages/freight-owner/PostLoad";
 
 function AppRoutes() {
   return (
@@ -19,6 +20,7 @@ function AppRoutes() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/role-selection" element={<RoleSelection />} />
         <Route path="/freight-owner/dashboard" element={<Dashboard />} />
+        <Route path="/freight-owner/post-load" element={<PostLoad />} />
 /&gt;
       </Routes>
     </BrowserRouter>
