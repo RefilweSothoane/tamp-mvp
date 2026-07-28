@@ -6,7 +6,7 @@ export default function Layout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#f4f5f9] text-[#18181b] flex flex-col font-['Quicksand',_sans-serif]">
+    <div className="min-h-screen bg-white text-[#18181b] flex flex-col font-['Quicksand',_sans-serif]">
       {/* Global Google Font Import Injection */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700;800&display=swap');
