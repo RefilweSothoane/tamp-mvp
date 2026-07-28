@@ -11,7 +11,7 @@ function Greeting({ name }) {
   }
 
   return (
-    <section className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between mb-8 bg-[#D8DFE9] p-6 lg:p-8 rounded-2xl">
+    <section className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between mb-8 bg-[#ECEFF3] p-6 lg:p-8 rounded-2xl">
       <div>
         <h1 className="text-3xl font-bold text-slate-900">
           {greeting}, {name}.
