@@ -21,7 +21,7 @@ function Sidebar({ isOpen, onClose }) {
     icon: PackagePlus,
   },
   {
-    path: "/matches",
+    path: "/freight-owner/matches",
     label: "Match Recommendations",
     icon: GitCompare,
   },
