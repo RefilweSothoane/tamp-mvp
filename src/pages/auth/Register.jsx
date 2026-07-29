@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Eye, EyeOff, ArrowRight } from "lucide-react";
+import { Eye, EyeOff, ArrowRight, Truck } from "lucide-react";
 
 function Register() {
+// State management
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -12,6 +13,7 @@ function Register() {
 
   const navigate = useNavigate();
 
+// Handlers
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -19,28 +21,29 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform registration logic here
+// Perform registration logic here
     navigate("/role-selection");
   };
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4 antialiased selection:bg-white selection:text-black">
-      {/* Main Card Container */}
+      
+{/* Main Container */}
       <div className="max-w-md w-full bg-zinc-950 rounded-2xl border border-zinc-800 shadow-2xl overflow-hidden my-8">
         
-        {/* Card Header */}
+{/* Header */}
         <div className="p-8 text-center border-b border-zinc-800/80 pb-6">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white text-black font-black text-xl mb-3 shadow-md uppercase">
-            T
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white text-black mb-3 shadow-md">
+            <Truck className="w-7 h-7" strokeWidth={2.5} />
           </div>
           <h1 className="text-2xl font-bold text-white tracking-tight">Create Account</h1>
           <p className="text-zinc-400 text-xs mt-1">Get started with your freight network today</p>
         </div>
 
-        {/* Register Form */}
+{/* Registration Form */}
         <form onSubmit={handleSubmit} className="p-8 space-y-5">
           
-          {/* Full Name Input */}
+{/* Full Name Input */}
           <div>
             <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">
               Full Name
@@ -51,12 +54,12 @@ function Register() {
               required
               value={formData.fullName}
               onChange={handleChange}
-              placeholder="Refilwe M."
+              placeholder="Refilwe Sothoane"
               className="w-full px-4 py-3 text-sm bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all text-white placeholder:text-zinc-500"
             />
           </div>
 
-          {/* Email Input */}
+{/* Email Input */}
           <div>
             <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">
               Email Address
@@ -72,7 +75,7 @@ function Register() {
             />
           </div>
 
-          {/* Password Input */}
+{/* Password Input */}
           <div>
             <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">
               Password
@@ -98,7 +101,7 @@ function Register() {
             </div>
           </div>
 
-          {/* Terms Agreement Checkbox */}
+{/* Terms & Privacy Agreement */}
           <div className="flex items-start gap-2 pt-1">
             <input
               type="checkbox"
@@ -113,23 +116,24 @@ function Register() {
             </label>
           </div>
 
-          {/* Action Button */}
+{/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 transition-all cursor-pointer active:scale-[0.99] mt-2"
+            className="w-full bg-violet-600 hover:bg-violet-500 text-white font-semibold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 transition-all cursor-pointer active:scale-[0.99] mt-2"
           >
             <span>Create Account</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>
 
-        {/* Card Footer - Link back to Login */}
+{/* Footer Link */}
         <div className="px-8 py-4 bg-zinc-900/50 border-t border-zinc-800/80 text-center text-xs text-zinc-400 font-medium">
           Already have an account?{" "}
           <Link to="/login" className="text-white font-semibold underline underline-offset-4 hover:text-zinc-200 transition-colors">
             Sign In
           </Link>
         </div>
+
       </div>
     </div>
   );
