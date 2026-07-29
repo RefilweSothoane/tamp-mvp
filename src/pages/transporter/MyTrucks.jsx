@@ -1,121 +1,111 @@
 import { useNavigate } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
 import {
-  Package,
+  Truck,
   MapPin,
   Calendar,
-  Truck,
   Eye,
   Plus,
+  Wrench,
 } from "lucide-react";
 
-const loads = [
+const trucks = [
   {
-    id: "LD-001",
-    cargo: "Construction Materials",
-    pickup: "Johannesburg",
-    delivery: "Cape Town",
-    date: "12 Aug 2026",
-    status: "Matched",
-    transporter: "Swift Logistics",
+    id: "TRK-001",
+    type: "Superlink Truck",
+    location: "Johannesburg",
+    available: "Available",
+    capacity: "34 Tons",
+    nextService: "20 Aug 2026",
   },
   {
-    id: "LD-002",
-    cargo: "Electronics",
-    pickup: "Pretoria",
-    delivery: "Durban",
-    date: "15 Aug 2026",
-    status: "Pending",
-    transporter: "-",
+    id: "TRK-002",
+    type: "Flatbed Truck",
+    location: "Pretoria",
+    available: "On Trip",
+    capacity: "28 Tons",
+    nextService: "15 Sept 2026",
   },
   {
-    id: "LD-003",
-    cargo: "Furniture",
-    pickup: "Bloemfontein",
-    delivery: "Port Elizabeth",
-    date: "18 Aug 2026",
-    status: "Completed",
-    transporter: "Cargo Express",
+    id: "TRK-003",
+    type: "Refrigerated Truck",
+    location: "Durban",
+    available: "Maintenance",
+    capacity: "20 Tons",
+    nextService: "5 Aug 2026",
   },
 ];
 
-function MyLoads() {
+function MyTrucks() {
   const navigate = useNavigate();
 
-  const statusColour = (status) => {
+  const statusColor = (status) => {
     switch (status) {
-      case "Matched":
-        return "bg-blue-100 text-blue-700";
-      case "Completed":
+      case "Available":
         return "bg-green-100 text-green-700";
+      case "On Trip":
+        return "bg-blue-100 text-blue-700";
+      case "Maintenance":
+        return "bg-red-100 text-red-700";
       default:
-        return "bg-yellow-100 text-yellow-700";
+        return "bg-slate-100 text-slate-700";
     }
   };
 
   return (
-    <Layout role="freight-owner">
+    <Layout role="transporter">
       <div className="max-w-7xl mx-auto">
 
-        {/* Header */}
-
         <div className="flex justify-between items-center mb-8">
-
           <div>
             <h1 className="text-4xl font-bold text-slate-900">
-              My Loads
+              My Trucks
             </h1>
 
             <p className="text-slate-500 mt-2">
-              View and manage all freight loads you've posted.
+              Manage all trucks registered on TAMP.
             </p>
           </div>
 
           <button
-            onClick={() => navigate("/freight-owner/post-load")}
+            onClick={() => navigate("/transporter/post-truck")}
             className="bg-slate-900 text-white px-5 py-3 rounded-xl hover:bg-slate-800 flex items-center gap-2"
           >
             <Plus size={18} />
-            Post New Load
+            Register Truck
           </button>
-
         </div>
 
         <div className="grid gap-6">
 
-          {loads.map((load) => (
+          {trucks.map((truck) => (
 
             <div
-              key={load.id}
+              key={truck.id}
               className="bg-white rounded-2xl border shadow-sm p-6 hover:shadow-md transition"
             >
 
               <div className="flex justify-between items-start">
 
                 <div>
-
                   <div className="flex items-center gap-3">
-
-                    <Package className="text-slate-700" />
-
+                    <Truck className="text-slate-700" />
                     <h2 className="text-xl font-semibold">
-                      {load.cargo}
+                      {truck.type}
                     </h2>
-
                   </div>
 
                   <p className="text-sm text-slate-500 mt-2">
-                    Load ID: {load.id}
+                    Truck ID: {truck.id}
                   </p>
-
                 </div>
 
                 <span
-                  className={`px-4 py-2 rounded-full text-sm font-semibold ${statusColour(
-                    load.status
+                  className={`px-4 py-2 rounded-full text-sm font-semibold ${statusColor(
+                    truck.available
                   )}`}
                 >
-                  {load.status}
+                  {truck.available}
                 </span>
 
               </div>
@@ -124,38 +114,32 @@ function MyLoads() {
 
                 <div className="flex items-center gap-2 text-slate-600">
                   <MapPin size={18} />
-                  {load.pickup} → {load.delivery}
-                </div>
-
-                <div className="flex items-center gap-2 text-slate-600">
-                  <Calendar size={18} />
-                  {load.date}
+                  {truck.location}
                 </div>
 
                 <div className="flex items-center gap-2 text-slate-600">
                   <Truck size={18} />
-                  {load.transporter}
+                  {truck.capacity}
+                </div>
+
+                <div className="flex items-center gap-2 text-slate-600">
+                  <Calendar size={18} />
+                  {truck.nextService}
                 </div>
 
               </div>
 
               <div className="flex justify-end gap-3 mt-6">
 
-                <button
-                  className="border border-slate-300 px-5 py-2 rounded-xl hover:bg-slate-100 flex items-center gap-2"
-                >
+                <button className="border border-slate-300 px-5 py-2 rounded-xl hover:bg-slate-100 flex items-center gap-2">
                   <Eye size={18} />
                   View Details
                 </button>
 
-                {load.status === "Matched" && (
-                  <button
-                    onClick={() => navigate("/tracking")}
-                    className="bg-slate-900 text-white px-5 py-2 rounded-xl hover:bg-slate-800"
-                  >
-                    Track Shipment
-                  </button>
-                )}
+                <button className="bg-slate-900 text-white px-5 py-2 rounded-xl hover:bg-slate-800 flex items-center gap-2">
+                  <Wrench size={18} />
+                  Edit Truck
+                </button>
 
               </div>
 
@@ -170,4 +154,4 @@ function MyLoads() {
   );
 }
 
-export default MyLoads;
+export default MyTrucks;

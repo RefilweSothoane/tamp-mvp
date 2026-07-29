@@ -81,7 +81,7 @@ function TransporterDashboard() {
   ];
 
   return (
-    <Layout>
+    <Layout role="transporter">
       <div className="min-h-screen bg-black text-white p-6 md:p-10 antialiased selection:bg-white selection:text-black">
         <div className="max-w-7xl mx-auto space-y-8">
 

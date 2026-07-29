@@ -7,8 +7,8 @@ import QuickActions from "../../components/dashboard/QuickActions";
 
 function Dashboard() {
   return (
-   <Layout>
-  <Greeting name="Refilwe" />
+    <Layout role="freight-owner">
+      <Greeting name="Refilwe" />
 
   <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
     {dashboardStats.map((stat) => (

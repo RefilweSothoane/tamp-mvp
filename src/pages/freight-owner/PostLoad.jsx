@@ -86,7 +86,7 @@ function PostLoad() {
   };
 
   return (
-    <Layout>
+    <Layout role="freight-owner">
       <div className="max-w-5xl mx-auto">
 
         {/* Header */}

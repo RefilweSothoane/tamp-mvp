@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 
-export default function Layout({ children }) {
+export default function Layout({ children, role }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ export default function Layout({ children }) {
       <Navbar onMobileMenuToggle={() => setIsSidebarOpen(true)} />
 
       {/* Slide-over Drawer Sidebar */}
-      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+<Sidebar role={role} isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       {/* Main Content Shell - Centers child content with matching page margins */}
       <main className="flex-1 p-6 md:p-10 max-w-6xl w-full mx-auto">

@@ -73,7 +73,7 @@ function MatchRecommendations() {
   const navigate = useNavigate();
 
   return (
-    <Layout>
+    <Layout role="freight-owner">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}

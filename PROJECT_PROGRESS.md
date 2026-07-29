@@ -14,13 +14,13 @@
 ## To Do
 - [x] Authentication
 - [x] Freight Owner Dashboard
-- [ ] Transporter Dashboard
+- [x] Transporter Dashboard
 - [ ] Admin Dashboard
-- [ ] Load Posting
-- [ ] Truck Registration
-- [ ] Match Recommendations
-- [ ] Confirmation Receipt
-- [ ] Trip Tracking
+- [x] Load Posting
+- [x] Truck Registration
+- [x] Match Recommendations
+- [x] Confirmation Receipt
+- [x] Trip Tracking
 - [ ] Ratings & Reviews
 - [ ] Admin Console
 - [ ] Testing
