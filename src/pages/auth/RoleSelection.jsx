@@ -20,7 +20,6 @@ const roles = [
     ],
     icon: Package,
     route: "/freight-owner/dashboard",
-    recommended: true,
   },
   {
     id: "transporter",
@@ -86,7 +85,7 @@ function RoleSelection() {
               px-6 py-3.5 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all shrink-0 cursor-pointer
               ${
                 selectedRole
-                  ? "bg-white hover:bg-zinc-200 text-black shadow-md active:scale-[0.98]"
+  ? "bg-violet-600 hover:bg-violet-500 text-white shadow-md active:scale-[0.98]"
                   : "bg-zinc-800 text-zinc-500 border border-zinc-700/50 cursor-not-allowed"
               }
             `}
@@ -122,15 +121,15 @@ function RoleSelection() {
                   cursor-pointer
                   ${
                     selected
-                      ? "bg-white border-2 border-white text-zinc-900 shadow-xl ring-4 ring-white/10 scale-[1.02]"
-                      : "bg-[#EEF3F9] text-zinc-900 border border-transparent hover:bg-white transition-colors"
+                      ? "bg-zinc-900 border-2 border-violet-500 text-white shadow-xl shadow-violet-500/10 ring-4 ring-violet-500/10 scale-[1.02]"
+                      : "bg-zinc-950 text-white border border-zinc-800 hover:border-violet-500/40 hover:bg-zinc-900 transition-all"
                   }
                 `}
               >
                 <div>
                   <div className="flex justify-between items-start">
-                    <div className="p-3 rounded-xl bg-white shadow-sm border border-zinc-200">
-                      <Icon size={22} className="text-zinc-700" />
+                    <div className="p-3 rounded-xl bg-zinc-900 shadow-sm border border-zinc-800">
+                      <Icon size={22} className="text-violet-400" />
                     </div>
 
                     {selected ? (
@@ -138,11 +137,11 @@ function RoleSelection() {
                     ) : null}
                   </div>
 
-                  <h2 className="text-xl font-bold mt-5 text-zinc-900">
+                  <h2 className="text-xl font-bold mt-5 text-white">
                     {role.title}
                   </h2>
 
-                  <p className="text-zinc-500 text-xs md:text-sm mt-2 leading-relaxed">
+                  <p className="text-zinc-400 text-xs md:text-sm mt-2 leading-relaxed">
                     {role.description}
                   </p>
                 </div>
