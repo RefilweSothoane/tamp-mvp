@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Eye, EyeOff, ArrowRight } from "lucide-react";
+import { Eye, EyeOff, ArrowRight, Truck } from "lucide-react";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,8 +20,8 @@ function Login() {
         
         {/* Card Header */}
         <div className="p-8 text-center border-b border-zinc-800/80 pb-6">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white text-black font-black text-xl mb-3 shadow-md uppercase">
-            T
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white text-black mb-3 shadow-md">
+            <Truck className="w-7 h-7" strokeWidth={2.5} />
           </div>
           <h1 className="text-2xl font-bold text-white tracking-tight">Welcome Back</h1>
           <p className="text-zinc-400 text-xs mt-1">Sign in to manage your freight network</p>
@@ -92,12 +92,12 @@ function Login() {
 
           {/* Uber-Style Action Button */}
           <button
-            type="submit"
-            className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 transition-all cursor-pointer active:scale-[0.99] mt-2"
-          >
-            <span>Sign In</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+  type="submit"
+  className="w-full bg-violet-600 hover:bg-violet-500 text-white font-semibold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 transition-all cursor-pointer active:scale-[0.99] mt-2"
+>
+  <span>Sign In</span>
+  <ArrowRight className="w-4 h-4" />
+</button>
         </form>
 
         {/* Card Footer */}
