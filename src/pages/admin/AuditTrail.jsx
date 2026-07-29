@@ -41,10 +41,12 @@ const stats = [
 
 const logs = [
   {
-    user: "ABC Logistics",
-    action: "Posted a new freight load",
-    time: "29 Jul 2026 • 09:15",
-  },
+  user: "ABC Logistics",
+  action: "Posted Load",
+  entity: "LOAD-204",
+  metadata: "Johannesburg → Durban",
+  time: "29 Jul 2026 • 09:15",
+},
   {
     user: "Swift Transport",
     action: "Accepted Match #1042",
