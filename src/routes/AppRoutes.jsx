@@ -10,6 +10,7 @@ import LandingPage from "../pages/Landing/LandingPage";
 import MatchRecommendations from "../pages/freight-owner/MatchRecommendations";
 import TransporterDashboard from "../pages/transporter/Dashboard";
 import PostTruck from "../pages/transporter/PostTruck";
+import DigitalConfirmation from "../pages/shared/DigitalConfirmation";
 
 function AppRoutes() {
   return (
@@ -29,6 +30,7 @@ function AppRoutes() {
         <Route path="/freight-owner/post-load" element={<PostLoad />} />
         <Route path="/freight-owner/matches" element={<MatchRecommendations />} />
         <Route path="/transporter/dashboard" element={<TransporterDashboard />} />
+        <Route path="/confirmation" element={<DigitalConfirmation />} />
         <Route path="/transporter/post-truck" element={<PostTruck />}
 />
       </Routes>
