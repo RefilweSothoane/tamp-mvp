@@ -10,12 +10,32 @@ import {
 
 function Sidebar({ isOpen, onClose }) {
   const navItems = [
-    { path: "/freight-owner/dashboard", label: "Overview", icon: LayoutDashboard },
-    { path: "/loads/new", label: "Post new load", icon: PackagePlus },
-    { path: "/matches", label: "Match recommendations", icon: GitCompare },
-    { path: "/tracking", label: "Trip tracking", icon: MapPin },
-    { path: "/profile", label: "Profile settings", icon: User },
-  ];
+  {
+    path: "/freight-owner/dashboard",
+    label: "Overview",
+    icon: LayoutDashboard,
+  },
+  {
+    path: "/freight-owner/post-load",
+    label: "Post New Load",
+    icon: PackagePlus,
+  },
+  {
+    path: "/matches",
+    label: "Match Recommendations",
+    icon: GitCompare,
+  },
+  {
+    path: "/tracking",
+    label: "Trip Tracking",
+    icon: MapPin,
+  },
+  {
+    path: "/profile",
+    label: "Profile Settings",
+    icon: User,
+  },
+];
 
   if (!isOpen) return null;
 

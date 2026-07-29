@@ -1,6 +1,8 @@
 import { Plus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function Greeting({ name }) {
+ const navigate = useNavigate(); 
   const hour = new Date().getHours();
   let greeting = "Good evening";
 
@@ -22,27 +24,28 @@ function Greeting({ name }) {
         </p>
       </div>
 
-      <button
-        className="
-          inline-flex
-          items-center
-          justify-center
-          gap-2
-          rounded-xl
-          bg-slate-950
-          px-5
-          py-3
-          text-sm
-          font-semibold
-          text-white
-          hover:bg-slate-800
-          transition
-          shrink-0
-        "
-      >
-        <Plus size={18} />
-        Post new load
-      </button>
+<button
+  onClick={() => navigate("/freight-owner/post-load")}
+  className="
+    inline-flex
+    items-center
+    justify-center
+    gap-2
+    rounded-xl
+    bg-slate-950
+    px-5
+    py-3
+    text-sm
+    font-semibold
+    text-white
+    hover:bg-slate-800
+    transition
+    shrink-0
+  "
+>
+  <Plus size={18} />
+  Post New Load
+</button>
     </section>
   );
 }

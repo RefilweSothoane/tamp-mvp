@@ -61,17 +61,21 @@ function RoleSelection() {
     <div className="min-h-screen bg-black text-white flex items-center justify-center px-6 py-12 antialiased selection:bg-white selection:text-black">
       <div className="max-w-6xl w-full">
         
-        {/* Header Hero Banner (Matches Greeting Banner) */}
-        <div className="bg-[#EEF3F9] rounded-2xl p-8 md:p-10 text-slate-900 mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-md">
+        {/* Header Hero Banner with Pure White / Dark Heading */}
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 md:p-10 mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
           <div>
-            <div className="inline-flex items-center gap-2 bg-slate-900 text-white rounded-lg px-3 py-1 text-xs font-semibold uppercase tracking-wider mb-3">
-              TAMP
+            <div className="inline-flex items-center gap-2 bg-zinc-800 border border-zinc-700 text-zinc-300 rounded-lg px-3 py-1 text-xs font-semibold uppercase tracking-wider mb-3">
+              TAMP Platform
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Select your platform perspective
+            
+            {/* Pure White Header */}
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+              Post new load
             </h1>
-            <p className="text-slate-500 text-sm md:text-base mt-1 font-medium">
-              Configure your workflow dashboard based on your operations.
+            
+            {/* Light Neutral Grey Subtitle */}
+            <p className="text-zinc-400 text-sm md:text-base mt-2 font-medium">
+              Select your operating role below to configure your dispatch workflow.
             </p>
           </div>
 
@@ -79,20 +83,20 @@ function RoleSelection() {
             disabled={!selectedRole}
             onClick={continueToDashboard}
             className={`
-              px-6 py-3.5 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all shrink-0
+              px-6 py-3.5 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all shrink-0 cursor-pointer
               ${
                 selectedRole
-                  ? "bg-slate-900 hover:bg-slate-800 text-white shadow-sm active:scale-[0.98]"
-                  : "bg-slate-300 text-slate-500 cursor-not-allowed"
+                  ? "bg-white hover:bg-zinc-200 text-black shadow-md active:scale-[0.98]"
+                  : "bg-zinc-800 text-zinc-500 border border-zinc-700/50 cursor-not-allowed"
               }
             `}
           >
             <span>
               {selectedRole
                 ? `Continue as ${selectedRole.title}`
-                : "Select a role"}
+                : "Select a perspective"}
             </span>
-          
+            <ArrowRight size={16} />
           </button>
         </div>
 
@@ -118,40 +122,39 @@ function RoleSelection() {
                   cursor-pointer
                   ${
                     selected
-                      ? "bg-white border-2 border-white text-slate-900 shadow-xl ring-4 ring-white/10 scale-[1.02]"
-                      : "bg-[#EEF3F9] text-slate-900 border border-transparent hover:bg-white transition-colors"
+                      ? "bg-white border-2 border-white text-zinc-900 shadow-xl ring-4 ring-white/10 scale-[1.02]"
+                      : "bg-[#EEF3F9] text-zinc-900 border border-transparent hover:bg-white transition-colors"
                   }
                 `}
               >
                 <div>
                   <div className="flex justify-between items-start">
-                    {/* Top Right Icon Block */}
-                    <div className="p-3 rounded-xl bg-white shadow-sm border border-slate-200/60">
-                      <Icon size={22} className="text-slate-700" />
+                    <div className="p-3 rounded-xl bg-white shadow-sm border border-zinc-200">
+                      <Icon size={22} className="text-zinc-700" />
                     </div>
 
                     {selected ? (
-                      <CheckCircle2 className="text-slate-900 fill-slate-900/10" size={24} />
+                      <CheckCircle2 className="text-zinc-900 fill-zinc-900/10" size={24} />
                     ) : null}
                   </div>
 
-                  <h2 className="text-xl font-bold mt-5 text-slate-900">
+                  <h2 className="text-xl font-bold mt-5 text-zinc-900">
                     {role.title}
                   </h2>
 
-                  <p className="text-slate-500 text-xs md:text-sm mt-2 leading-relaxed">
+                  <p className="text-zinc-500 text-xs md:text-sm mt-2 leading-relaxed">
                     {role.description}
                   </p>
                 </div>
 
                 <div>
-                  <hr className="my-5 border-slate-200" />
+                  <hr className="my-5 border-zinc-200" />
 
                   <div className="space-y-2.5">
                     {role.features.map((feature) => (
                       <div
                         key={feature}
-                        className="flex items-center gap-2 text-xs font-semibold text-slate-700"
+                        className="flex items-center gap-2 text-xs font-semibold text-zinc-700"
                       >
                         <CheckCircle2
                           size={15}
