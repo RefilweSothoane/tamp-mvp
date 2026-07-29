@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Lock, Mail, Eye, EyeOff, ArrowRight, ShieldCheck } from "lucide-react";
+import { Eye, EyeOff, ArrowRight } from "lucide-react";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,17 +10,17 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform authentication logic here
-navigate("/role-selection");
+    navigate("/role-selection");
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4 antialiased">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl border border-slate-200/80 overflow-hidden">
+    <div className="min-h-screen bg-black flex items-center justify-center p-4 antialiased selection:bg-white selection:text-black">
+      {/* Main Card Container */}
+      <div className="max-w-md w-full bg-zinc-950 rounded-2xl border border-zinc-800 shadow-2xl overflow-hidden">
         
-        {/* Header Branding */}
-        <div className="bg-[#18181b] p-8 text-center relative">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold text-xl mb-3">
+        {/* Card Header */}
+        <div className="p-8 text-center border-b border-zinc-800/80 pb-6">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white text-black font-black text-xl mb-3 shadow-md uppercase">
             T
           </div>
           <h1 className="text-2xl font-bold text-white tracking-tight">Welcome Back</h1>
@@ -32,49 +32,45 @@ navigate("/role-selection");
           
           {/* Email Input */}
           <div>
-            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">
               Email Address
             </label>
-            <div className="relative">
-              <Mail className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="name@company.com"
-                className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400 transition-all text-slate-800 placeholder:text-slate-400"
-              />
-            </div>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="name@company.com"
+              className="w-full px-4 py-3 text-sm bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all text-white placeholder:text-zinc-500"
+            />
           </div>
 
           {/* Password Input */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider">
+              <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider">
                 Password
               </label>
               <Link
                 to="/forgot-password"
-                className="text-xs font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
+                className="text-xs font-medium text-zinc-400 hover:text-white transition-colors underline underline-offset-4"
               >
-                Forgot?
+                Forgot Password?
               </Link>
             </div>
             <div className="relative">
-              <Lock className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
                 type={showPassword ? "text" : "password"}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-10 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400 transition-all text-slate-800 placeholder:text-slate-400"
+                className="w-full pl-4 pr-11 py-3 text-sm bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all text-white placeholder:text-zinc-500"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white transition-colors"
                 aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -83,31 +79,30 @@ navigate("/role-selection");
           </div>
 
           {/* Remember Me */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 pt-1">
             <input
               type="checkbox"
               id="remember"
-              className="w-4 h-4 rounded border-slate-300 text-slate-900 focus:ring-slate-900/20"
+              className="w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-white focus:ring-0 accent-white cursor-pointer"
             />
-            <label htmlFor="remember" className="text-xs font-medium text-slate-600 select-none">
+            <label htmlFor="remember" className="text-xs font-medium text-zinc-400 select-none cursor-pointer">
               Remember this device for 30 days
             </label>
           </div>
 
-          {/* Submit Button */}
+          {/* Uber-Style Action Button */}
           <button
             type="submit"
-            className="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-2.5 px-4 rounded-xl text-sm flex items-center justify-center gap-2 transition-all duration-150 shadow-sm active:scale-[0.99]"
+            className="w-full bg-white hover:bg-zinc-200 text-black font-semibold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 transition-all cursor-pointer active:scale-[0.99] mt-2"
           >
             <span>Sign In</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>
 
-        {/* Footer Link */}
-        <div className="px-8 py-4 bg-slate-50 border-t border-slate-200/80 text-center flex items-center justify-center gap-1.5 text-xs text-slate-500">
-          <ShieldCheck className="w-4 h-4 text-emerald-600" />
-          <span>Encrypted 256-bit secure login</span>
+        {/* Card Footer */}
+        <div className="px-8 py-4 bg-zinc-900/50 border-t border-zinc-800/80 text-center text-xs text-zinc-500 font-medium">
+          secure login
         </div>
       </div>
     </div>
