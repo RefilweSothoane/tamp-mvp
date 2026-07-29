@@ -17,7 +17,7 @@ function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-black text-white antialiased selection:bg-white selection:text-black font-sans">
+    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black text-white antialiased selection:bg-white selection:text-black font-sans">
       
       {/* 1. Header / Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-zinc-800/80">
@@ -81,42 +81,58 @@ function LandingPage() {
         )}
       </header>
 
-      {/* 2. Hero Section */}
-      <section className="pt-36 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-300 mb-6">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Digital Freight Marketplace
-          </div>
+{/* 2. Hero Section */}
+<section className="pt-36 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto">
+  <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
-            Eliminate empty miles. <br />
-            Match freight instantly.
-          </h1>
+    {/* LEFT SIDE */}
+    <div>
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-300 text-xs font-medium mb-6 backdrop-blur-sm">
+        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        Digital Freight Marketplace
+      </div>
 
-          <p className="text-lg md:text-xl text-zinc-400 font-normal leading-relaxed mb-8">
-            TAMP connects freight owners with available transport capacity in real time. 
-            Improve truck utilisation, reduce return legs, and track every transaction with total transparency.
-          </p>
+      <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+        Eliminate empty miles. <br />
+        Match freight instantly.
+      </h1>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <Link 
-              to="/register" 
-              className="bg-white hover:bg-zinc-200 text-black font-semibold px-8 py-4 rounded-xl text-base flex items-center justify-center gap-2 transition-all cursor-pointer active:scale-[0.98]"
-            >
-              <span>Post or Find Cargo</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+      <p className="text-lg md:text-xl text-zinc-400 font-normal leading-relaxed mb-8">
+        TAMP connects freight owners with available transport capacity in real time.
+        Improve truck utilisation, reduce return legs, and track every transaction with total transparency.
+      </p>
 
-            <a 
-              href="#how-it-works"
-              className="bg-zinc-900 hover:bg-zinc-800 text-white font-medium px-8 py-4 rounded-xl text-base border border-zinc-800 flex items-center justify-center transition-all"
-            >
-              How TAMP Works
-            </a>
-          </div>
-        </div>
-      </section>
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+        <Link
+          to="/register"
+        className="bg-violet-600 hover:bg-violet-500 text-white font-semibold px-8 py-4 rounded-xl text-base flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+        >
+          <span>Post or Find Cargo</span>
+          <ArrowRight className="w-5 h-5" />
+        </Link>
+
+        <a
+          href="#how-it-works"
+          className="bg-zinc-900 hover:bg-zinc-800 text-white font-medium px-8 py-4 rounded-xl text-base border border-zinc-800 flex items-center justify-center transition-all"
+        >
+          How TAMP Works
+        </a>
+      </div>
+    </div>
+
+    {/* RIGHT SIDE */}
+    <div className="relative w-full h-[400px] hidden lg:flex items-center justify-center">
+      <div className="absolute w-72 h-72 bg-violet-600/20 blur-[120px] rounded-full" />
+
+      <Truck
+        size={180}
+        strokeWidth={1.5}
+        className="relative text-white animate-bounce"
+      />
+    </div>
+
+  </div>
+</section>
 
       {/* 3. Metrics Banner */}
       <section className="border-y border-zinc-800/80 bg-zinc-950/60 py-12 px-6">
@@ -155,7 +171,7 @@ function LandingPage() {
               <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-white mb-6">
                 <TrendingUp className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Maximise Fleet Utilisation</h3>
+              <h3 className="text-xl font-bold text-violet-400 mb-3">Maximise Fleet Utilisation</h3>
               <p className="text-zinc-400 text-sm leading-relaxed">
                 Fill empty return trips by matching available truck space with cargo along scheduled routes in real time.
               </p>
@@ -171,7 +187,7 @@ function LandingPage() {
               <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-white mb-6">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Rapid Load Allocation</h3>
+              <h3 className="text-xl font-bold text-emerald-400 mb-3">Rapid Load Allocation</h3>
               <p className="text-zinc-400 text-sm leading-relaxed">
                 Shorten the time required to pair cargo with verified transporters using instant automated compatibility scoring.
               </p>
@@ -187,7 +203,7 @@ function LandingPage() {
               <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-white mb-6">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Auditable Transparency</h3>
+              <h3 className="text-xl font-bold text-cyan-400 mb-3">Auditable Transparency</h3>
               <p className="text-zinc-400 text-sm leading-relaxed">
                 Maintain an immutable record of every match, price quote, and status update across the entire transport lifecycle.
               </p>
