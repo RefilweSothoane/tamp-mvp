@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import {
+  Star,
   LayoutDashboard,
   Package,
   PackagePlus,
@@ -35,6 +36,11 @@ const adminNavItems = [
     path: "/admin/audit",
     label: "Audit Trail",
     icon: FileText,
+  },
+  {
+  path: "/ratings",
+  label: "Ratings",
+  icon: Star,
   },
   {
     path: "/admin/analytics",

@@ -18,6 +18,7 @@ import AdminDashboard from "../pages/admin/Dashboard";
 import UsersManagement from "../pages/admin/Users";
 import Compliance from "../pages/admin/Compliance";
 import AuditTrail from "../pages/admin/AuditTrail";
+import Ratings from "../pages/shared/Ratings";
 
 function AppRoutes() {
   return (
@@ -46,6 +47,7 @@ function AppRoutes() {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/audit" element={<AuditTrail />} />
         <Route path="/admin/users" element={<UsersManagement />} />
+        <Route path="/ratings" element={<Ratings />} />
       </Routes>
 
     </BrowserRouter>
