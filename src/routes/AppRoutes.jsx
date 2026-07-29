@@ -16,6 +16,7 @@ import MyLoads from "../pages/freight-owner/MyLoads";
 import MyTrucks from "../pages/transporter/MyTrucks";
 import AdminDashboard from "../pages/admin/Dashboard";
 import UsersManagement from "../pages/admin/Users";
+import Compliance from "../pages/admin/Compliance";
 
 function AppRoutes() {
   return (
@@ -38,6 +39,7 @@ function AppRoutes() {
         <Route path="/confirmation" element={<DigitalConfirmation />} />
         <Route path="/tracking" element={<TripTracking />} />
         <Route path="/freight-owner/my-loads" element={<MyLoads />} />
+        <Route path="/admin/compliance" element={<Compliance />} />
         <Route path="/transporter/post-truck" element={<PostTruck />} />
         <Route path="/transporter/my-trucks" element={<MyTrucks />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
