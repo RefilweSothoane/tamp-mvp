@@ -17,6 +17,7 @@ import MyTrucks from "../pages/transporter/MyTrucks";
 import AdminDashboard from "../pages/admin/Dashboard";
 import UsersManagement from "../pages/admin/Users";
 import Compliance from "../pages/admin/Compliance";
+import AuditTrail from "../pages/admin/AuditTrail";
 
 function AppRoutes() {
   return (
@@ -43,6 +44,7 @@ function AppRoutes() {
         <Route path="/transporter/post-truck" element={<PostTruck />} />
         <Route path="/transporter/my-trucks" element={<MyTrucks />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/audit" element={<AuditTrail />} />
         <Route path="/admin/users" element={<UsersManagement />} />
       </Routes>
 
