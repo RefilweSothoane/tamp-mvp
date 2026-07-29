@@ -7,13 +7,13 @@
 - [x] Git repository connected to GitHub
 
 ## In Progress
-- [ ] Install Tailwind CSS
-- [ ] Configure React Router
-- [ ] Create reusable layout
+- [x] Install Tailwind CSS
+- [x] Configure React Router
+- [x] Create reusable layout
 
 ## To Do
-- [ ] Authentication
-- [ ] Freight Owner Dashboard
+- [x] Authentication
+- [x] Freight Owner Dashboard
 - [ ] Transporter Dashboard
 - [ ] Admin Dashboard
 - [ ] Load Posting
