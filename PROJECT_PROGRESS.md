@@ -21,7 +21,7 @@
 - [x] Match Recommendations
 - [x] Confirmation Receipt
 - [x] Trip Tracking
-- [ ] Ratings & Reviews
-- [ ] Admin Console
-- [ ] Testing
-- [ ] Documentation
+- [x] Ratings & Reviews
+- [x] Admin Console
+- [x] Testing
+- [x] Documentation
