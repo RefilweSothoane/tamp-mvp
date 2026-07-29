@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { 
-  LayoutDashboard, 
+  LayoutDashboard,
+  Package, 
   PackagePlus, 
   GitCompare, 
   MapPin, 
@@ -30,6 +31,11 @@ function Sidebar({ isOpen, onClose }) {
     label: "Trip Tracking",
     icon: MapPin,
   },
+  {
+  path: "/freight-owner/my-loads",
+  label: "My Loads",
+  icon: Package,
+},
   {
     path: "/profile",
     label: "Profile Settings",
