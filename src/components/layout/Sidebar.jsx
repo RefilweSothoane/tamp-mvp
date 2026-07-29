@@ -9,9 +9,40 @@ import {
   MapPin,
   User,
   X,
+  FileText,
+  BarChart3,
 } from "lucide-react";
 
 function Sidebar({ role, isOpen, onClose }) {
+
+const adminNavItems = [
+  {
+    path: "/admin/dashboard",
+    label: "Dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    path: "/admin/users",
+    label: "Users",
+    icon: User,
+  },
+  {
+    path: "/admin/compliance",
+    label: "Compliance",
+    icon: ClipboardList,
+  },
+  {
+    path: "/admin/audit",
+    label: "Audit Trail",
+    icon: FileText,
+  },
+  {
+    path: "/admin/analytics",
+    label: "Analytics",
+    icon: BarChart3,
+  },
+];  
+
 const freightOwnerNavItems = [
   { path: "/freight-owner/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { path: "/freight-owner/post-load", label: "Post Load", icon: PackagePlus },
@@ -31,7 +62,9 @@ const transporterNavItems = [
 ];
 
 const navItems =
-  role === "transporter"
+  role === "admin"
+    ? adminNavItems
+    : role === "transporter"
     ? transporterNavItems
     : freightOwnerNavItems;
 

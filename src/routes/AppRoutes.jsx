@@ -14,6 +14,7 @@ import DigitalConfirmation from "../pages/shared/DigitalConfirmation";
 import TripTracking from "../pages/shared/TripTracking";
 import MyLoads from "../pages/freight-owner/MyLoads";
 import MyTrucks from "../pages/transporter/MyTrucks";
+import AdminDashboard from "../pages/admin/Dashboard";
 
 function AppRoutes() {
   return (
@@ -38,6 +39,7 @@ function AppRoutes() {
         <Route path="/freight-owner/my-loads" element={<MyLoads />} />
         <Route path="/transporter/post-truck" element={<PostTruck />} />
         <Route path="/transporter/my-trucks" element={<MyTrucks />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
 
     </BrowserRouter>
