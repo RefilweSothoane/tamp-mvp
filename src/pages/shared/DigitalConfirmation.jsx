@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import {
   CheckCircle,
   Download,
-  Home,
   FileText,
   Calendar,
   User,
@@ -175,12 +174,12 @@ function DigitalConfirmation() {
           </button>
 
           <button
-            onClick={() => navigate("/freight-owner/dashboard")}
-            className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl flex items-center gap-2"
-          >
-            <Home size={18} />
-            Back to Dashboard
-          </button>
+  onClick={() => navigate("/tracking")}
+  className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl flex items-center gap-2"
+>
+  <Truck size={18} />
+  Track Shipment
+</button>
 
         </div>
 
