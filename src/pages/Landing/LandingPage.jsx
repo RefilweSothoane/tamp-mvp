@@ -122,13 +122,14 @@ function LandingPage() {
 
     {/* RIGHT SIDE */}
     <div className="relative w-full h-[400px] hidden lg:flex items-center justify-center">
-      <div className="absolute w-72 h-72 bg-violet-600/20 blur-[120px] rounded-full" />
+      <div className="absolute w-[450px] h-[450px] bg-violet-600/40 blur-[160px] rounded-full" />
 
-      <Truck
-        size={180}
-        strokeWidth={1.5}
-        className="relative text-white animate-bounce"
-      />
+<img
+  src="/images/truck.svg"
+  alt="Truck"
+  className="relative w-[480px] float-animation"
+/>
+
     </div>
 
   </div>
