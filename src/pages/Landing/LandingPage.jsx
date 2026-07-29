@@ -25,9 +25,9 @@ function LandingPage() {
           
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white text-black font-black text-xl rounded-xl flex items-center justify-center uppercase shadow-md">
-              T
-            </div>
+            <div className="w-10 h-10 bg-white text-black rounded-xl flex items-center justify-center shadow-md">
+  <Truck className="w-6 h-6" strokeWidth={2.5} />
+</div>
             <span className="text-xl font-bold tracking-tight text-white uppercase">
               TAMP
             </span>
@@ -275,11 +275,11 @@ function LandingPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
-              to="/register" 
-              className="w-full sm:w-auto bg-white hover:bg-zinc-200 text-black font-semibold px-8 py-3.5 rounded-xl text-sm transition-all active:scale-[0.98]"
-            >
-              Create Account
-            </Link>
+  to="/register" 
+  className="w-full sm:w-auto bg-violet-600 hover:bg-violet-500 text-white font-semibold px-8 py-3.5 rounded-xl text-sm transition-all active:scale-[0.98]"
+>
+  Create Account
+</Link>
             <Link 
               to="/login" 
               className="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 text-white font-medium px-8 py-3.5 rounded-xl text-sm border border-zinc-800 transition-all"
