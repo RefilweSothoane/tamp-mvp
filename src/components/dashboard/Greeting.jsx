@@ -13,13 +13,14 @@ function Greeting({ name }) {
   }
 
   return (
-    <section className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between mb-8 bg-[#ECEFF3] p-6 lg:p-8 rounded-2xl">
+    <section className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between mb-8 bg-zinc-950 border border-zinc-800 p-6 lg:p-8 rounded-2xl">
+      <div className="absolute right-0 top-0 w-64 h-64 bg-violet-600/10 blur-3xl rounded-full pointer-events-none" />
       <div>
-        <h1 className="text-3xl font-bold text-slate-900">
+        <h1 className="text-3xl font-bold text-white">
           {greeting}, {name}.
         </h1>
 
-        <p className="text-slate-500 mt-1 text-sm lg:text-base">
+        <p className="text-slate-400 mt-1 text-sm lg:text-base">
           Here's what's happening across your network today...
         </p>
       </div>
@@ -32,13 +33,13 @@ function Greeting({ name }) {
     justify-center
     gap-2
     rounded-xl
-    bg-slate-950
+    bg-violet-600
     px-5
     py-3
     text-sm
     font-semibold
     text-white
-    hover:bg-slate-800
+    hover:bg-violet-500
     transition
     shrink-0
   "
