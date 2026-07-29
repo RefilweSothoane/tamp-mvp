@@ -1,47 +1,39 @@
 import { NavLink } from "react-router-dom";
-import { 
+import {
   LayoutDashboard,
-  Package, 
-  PackagePlus, 
-  GitCompare, 
-  MapPin, 
+  Package,
+  PackagePlus,
+  Truck,
+  ClipboardList,
+  GitCompare,
+  MapPin,
   User,
-  X
+  X,
 } from "lucide-react";
 
-function Sidebar({ isOpen, onClose }) {
-  const navItems = [
-  {
-    path: "/freight-owner/dashboard",
-    label: "Overview",
-    icon: LayoutDashboard,
-  },
-  {
-    path: "/freight-owner/post-load",
-    label: "Post New Load",
-    icon: PackagePlus,
-  },
-  {
-    path: "/freight-owner/matches",
-    label: "Match Recommendations",
-    icon: GitCompare,
-  },
-  {
-    path: "/tracking",
-    label: "Trip Tracking",
-    icon: MapPin,
-  },
-  {
-  path: "/freight-owner/my-loads",
-  label: "My Loads",
-  icon: Package,
-},
-  {
-    path: "/profile",
-    label: "Profile Settings",
-    icon: User,
-  },
+function Sidebar({ role, isOpen, onClose }) {
+const freightOwnerNavItems = [
+  { path: "/freight-owner/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { path: "/freight-owner/post-load", label: "Post Load", icon: PackagePlus },
+  { path: "/freight-owner/my-loads", label: "My Loads", icon: Package },
+  { path: "/matches", label: "Match Recommendations", icon: GitCompare },
+  { path: "/tracking", label: "Trip Tracking", icon: MapPin },
+  { path: "/profile", label: "Profile", icon: User },
 ];
+
+const transporterNavItems = [
+  { path: "/transporter/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { path: "/transporter/post-truck", label: "Post Truck", icon: Truck },
+  { path: "/transporter/my-trucks", label: "My Trucks", icon: ClipboardList },
+  { path: "/loads", label: "Available Loads", icon: Package },
+  { path: "/tracking", label: "Trip Tracking", icon: MapPin },
+  { path: "/profile", label: "Profile", icon: User },
+];
+
+const navItems =
+  role === "transporter"
+    ? transporterNavItems
+    : freightOwnerNavItems;
 
   if (!isOpen) return null;
 
