@@ -9,8 +9,10 @@ import {
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function TransporterDashboard() {
+  const navigate = useNavigate();
   const stats = [
     {
       title: "Available Trucks",
@@ -87,17 +89,20 @@ function TransporterDashboard() {
           <section className="bg-[#EEF3F9] rounded-2xl p-6 md:p-8 text-neutral-900 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm border border-neutral-200/80">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900">
-                Good Morning, Transporter
+                Good Morning, Daniel
               </h1>
               <p className="text-neutral-500 text-sm md:text-base mt-1 font-medium">
-                Here is an overview of your active fleet, dispatch schedule, and earnings.
+                Here is an overview of your current operations...
               </p>
             </div>
 
-            <button className="bg-neutral-900 hover:bg-neutral-800 text-white font-semibold text-sm px-5 py-3 rounded-xl flex items-center gap-2 transition-all cursor-pointer shadow-sm active:scale-[0.98] shrink-0">
-              <PlusCircle size={18} />
-              <span>Post Available Truck</span>
-            </button>
+            <button
+  onClick={() => navigate("/transporter/post-truck")}
+  className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl flex items-center gap-2 transition"
+>
+  <PlusCircle size={20} />
+  Post Available Truck
+</button>
           </section>
 
           {/* Stats Grid */}

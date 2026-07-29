@@ -1,23 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
-import { ArrowLeft, Save } from "lucide-react";
+import { ArrowLeft, Save, Truck } from "lucide-react";
 
-function PostLoad() {
+function PostTruck() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    cargoType: "",
-    weight: "",
-    description: "",
-    pickupLocation: "",
-    pickupDate: "",
-    deliveryLocation: "",
-    deliveryDate: "",
-    budget: "",
+    truckType: "",
+    capacity: "",
+    licensePlate: "",
+    currentLocation: "",
+    destinationLocation: "",
+    availableDate: "",
+    pricePerKm: "",
     refrigerated: false,
-    hazardous: false,
-    insurance: false,
+    hazardousPermit: false,
+    tailgateLift: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -35,35 +34,23 @@ function PostLoad() {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.cargoType)
-      newErrors.cargoType = "Cargo type is required.";
+    if (!formData.truckType)
+      newErrors.truckType = "Truck type is required.";
 
-    if (!formData.weight || Number(formData.weight) <= 0)
-      newErrors.weight = "Enter a valid weight.";
+    if (!formData.capacity || Number(formData.capacity) <= 0)
+      newErrors.capacity = "Enter a valid capacity in tons.";
 
-    if (!formData.pickupLocation)
-      newErrors.pickupLocation = "Pickup location is required.";
+    if (!formData.licensePlate.trim())
+      newErrors.licensePlate = "License plate / Registration is required.";
 
-    if (!formData.deliveryLocation)
-      newErrors.deliveryLocation = "Delivery location is required.";
+    if (!formData.currentLocation.trim())
+      newErrors.currentLocation = "Current location is required.";
 
-    if (!formData.pickupDate)
-      newErrors.pickupDate = "Pickup date is required.";
+    if (!formData.availableDate)
+      newErrors.availableDate = "Available date is required.";
 
-    if (!formData.deliveryDate)
-      newErrors.deliveryDate = "Delivery date is required.";
-
-    if (
-      formData.pickupDate &&
-      formData.deliveryDate &&
-      formData.pickupDate > formData.deliveryDate
-    ) {
-      newErrors.deliveryDate =
-        "Delivery date must be after pickup date.";
-    }
-
-    if (!formData.budget || Number(formData.budget) <= 0)
-      newErrors.budget = "Enter a valid budget.";
+    if (!formData.pricePerKm || Number(formData.pricePerKm) <= 0)
+      newErrors.pricePerKm = "Enter a valid rate per km.";
 
     setErrors(newErrors);
 
@@ -81,245 +68,211 @@ function PostLoad() {
 
     setTimeout(() => {
       setSuccess(false);
-      navigate("/freight-owner/dashboard");
+      navigate("/transporter/dashboard");
     }, 2000);
   };
 
   return (
     <Layout>
       <div className="max-w-5xl mx-auto">
-
         {/* Header */}
-
         <div className="flex items-center justify-between mb-8">
-
           <div>
-
             <button
-              onClick={() => navigate("/freight-owner/dashboard")}
+              onClick={() => navigate("/transporter/dashboard")}
               className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 mb-3"
             >
               <ArrowLeft size={18} />
               Back to Dashboard
             </button>
 
-            <h1 className="text-4xl font-bold text-slate-900">
-  Post New Load
-</h1>
-
+            <h1 className="text-4xl font-bold text-slate-900 flex items-center gap-3">
+              <Truck size={36} className="text-slate-800" />
+              Post Available Truck
+            </h1>
 
             <p className="text-slate-500 mt-2">
-              Create a shipment and let TAMP match you with the most suitable transporter.
+              List your available vehicle capacity so freight owners can book routes.
             </p>
-
           </div>
 
-          <span className="px-4 py-2 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">
-            Draft
+          <span className="px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold">
+            Active Listing
           </span>
-
         </div>
 
         {success && (
           <div className="mb-6 rounded-xl bg-green-100 border border-green-300 p-4 text-green-700">
-            ✅ Load published successfully!
+            ✅ Truck listing published successfully!
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-8">
-
-          {/* Cargo */}
-
+          {/* Truck Details */}
           <div className="bg-white rounded-2xl shadow-sm p-6">
-
             <h2 className="text-xl font-semibold mb-6">
-              Cargo Information
+              Vehicle Specifications
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
-
               <div>
-
                 <label className="block text-sm font-medium mb-2">
-                  Cargo Type
+                  Truck Type
                 </label>
-
                 <select
-                  name="cargoType"
-                  value={formData.cargoType}
+                  name="truckType"
+                  value={formData.truckType}
                   onChange={handleChange}
                   className="w-full rounded-xl border p-3"
                 >
-                  <option value="">Select Cargo Type</option>
-                  <option>Construction Materials</option>
-                  <option>Food & Beverage</option>
-                  <option>Furniture</option>
-                  <option>Electronics</option>
-                  <option>Machinery</option>
-                  <option>Agricultural Goods</option>
-                  <option>Other</option>
+                  <option value="">Select Truck Type</option>
+                  <option>Flatbed</option>
+                  <option>Box Truck / Dry Van</option>
+                  <option>Refrigerated (Reefer)</option>
+                  <option>Side Loader</option>
+                  <option>Curtainsider</option>
+                  <option>Tanker</option>
+                  <option>Tipper / Dump Truck</option>
                 </select>
 
-                {errors.cargoType && (
+                {errors.truckType && (
                   <p className="text-red-500 text-sm mt-1">
-                    {errors.cargoType}
+                    {errors.truckType}
                   </p>
                 )}
-
               </div>
 
               <div>
-
                 <label className="block text-sm font-medium mb-2">
-                  Weight (tons)
+                  Capacity (tons)
                 </label>
-
                 <input
                   type="number"
-                  name="weight"
-                  value={formData.weight}
+                  name="capacity"
+                  value={formData.capacity}
                   onChange={handleChange}
+                  placeholder="e.g. 15"
                   className="w-full rounded-xl border p-3"
                 />
 
-                {errors.weight && (
+                {errors.capacity && (
                   <p className="text-red-500 text-sm mt-1">
-                    {errors.weight}
+                    {errors.capacity}
                   </p>
                 )}
-
               </div>
 
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium mb-2">
+                  License Plate / Registration Number
+                </label>
+                <input
+                  type="text"
+                  name="licensePlate"
+                  value={formData.licensePlate}
+                  onChange={handleChange}
+                  placeholder="e.g. CA 123-456"
+                  className="w-full rounded-xl border p-3"
+                />
+
+                {errors.licensePlate && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.licensePlate}
+                  </p>
+                )}
+              </div>
             </div>
-
-            <div className="mt-6">
-
-              <label className="block text-sm font-medium mb-2">
-                Description
-              </label>
-
-              <textarea
-                rows="4"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-                className="w-full rounded-xl border p-3"
-              />
-
-            </div>
-
           </div>
 
-          {/* Pickup & Delivery */}
-
+          {/* Availability & Route */}
           <div className="bg-white rounded-2xl shadow-sm p-6">
-
             <h2 className="text-xl font-semibold mb-6">
-              Shipment Details
+              Availability & Route
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
-
               <div>
-
-                <label className="block mb-2">Pickup Location</label>
-
+                <label className="block text-sm font-medium mb-2">
+                  Current Location
+                </label>
                 <input
                   type="text"
-                  name="pickupLocation"
-                  value={formData.pickupLocation}
+                  name="currentLocation"
+                  value={formData.currentLocation}
                   onChange={handleChange}
+                  placeholder="e.g. Johannesburg"
                   className="w-full rounded-xl border p-3"
                 />
 
-                {errors.pickupLocation && (
+                {errors.currentLocation && (
                   <p className="text-red-500 text-sm mt-1">
-                    {errors.pickupLocation}
+                    {errors.currentLocation}
                   </p>
                 )}
-
               </div>
 
               <div>
-
-                <label className="block mb-2">
-                  Delivery Location
+                <label className="block text-sm font-medium mb-2">
+                  Preferred Destination (Optional)
                 </label>
-
                 <input
                   type="text"
-                  name="deliveryLocation"
-                  value={formData.deliveryLocation}
+                  name="destinationLocation"
+                  value={formData.destinationLocation}
                   onChange={handleChange}
+                  placeholder="e.g. Durban (leave blank for any)"
                   className="w-full rounded-xl border p-3"
                 />
-
-                {errors.deliveryLocation && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.deliveryLocation}
-                  </p>
-                )}
-
               </div>
 
               <div>
-
-                <label className="block mb-2">
-                  Pickup Date
+                <label className="block text-sm font-medium mb-2">
+                  Available Date
                 </label>
-
                 <input
                   type="date"
-                  name="pickupDate"
-                  value={formData.pickupDate}
+                  name="availableDate"
+                  value={formData.availableDate}
                   onChange={handleChange}
                   className="w-full rounded-xl border p-3"
                 />
 
-                {errors.pickupDate && (
+                {errors.availableDate && (
                   <p className="text-red-500 text-sm mt-1">
-                    {errors.pickupDate}
+                    {errors.availableDate}
                   </p>
                 )}
-
               </div>
 
               <div>
-
-                <label className="block mb-2">
-                  Delivery Date
+                <label className="block text-sm font-medium mb-2">
+                  Rate per Kilometer (R)
                 </label>
-
                 <input
-                  type="date"
-                  name="deliveryDate"
-                  value={formData.deliveryDate}
+                  type="number"
+                  name="pricePerKm"
+                  value={formData.pricePerKm}
                   onChange={handleChange}
+                  placeholder="e.g. 25"
                   className="w-full rounded-xl border p-3"
                 />
 
-                {errors.deliveryDate && (
+                {errors.pricePerKm && (
                   <p className="text-red-500 text-sm mt-1">
-                    {errors.deliveryDate}
+                    {errors.pricePerKm}
                   </p>
                 )}
-
               </div>
-
             </div>
-
           </div>
 
-          {/* Additional */}
-
+          {/* Features & Permits */}
           <div className="bg-white rounded-2xl shadow-sm p-6">
-
             <h2 className="text-xl font-semibold mb-6">
-              Additional Requirements
+              Vehicle Capabilities & Permits
             </h2>
 
             <div className="space-y-4">
-
               <label className="flex items-center gap-3">
                 <input
                   type="checkbox"
@@ -327,62 +280,36 @@ function PostLoad() {
                   checked={formData.refrigerated}
                   onChange={handleChange}
                 />
-                Refrigerated Truck
+                Refrigeration Unit Installed
               </label>
 
               <label className="flex items-center gap-3">
                 <input
                   type="checkbox"
-                  name="hazardous"
-                  checked={formData.hazardous}
+                  name="hazardousPermit"
+                  checked={formData.hazardousPermit}
                   onChange={handleChange}
                 />
-                Hazardous Materials
+                Hazmat / Hazardous Goods Permit
               </label>
 
               <label className="flex items-center gap-3">
                 <input
                   type="checkbox"
-                  name="insurance"
-                  checked={formData.insurance}
+                  name="tailgateLift"
+                  checked={formData.tailgateLift}
                   onChange={handleChange}
                 />
-                Insurance Required
+                Tailgate Lift Available
               </label>
-
             </div>
-
-            <div className="mt-6">
-
-              <label className="block mb-2">
-                Estimated Budget (R)
-              </label>
-
-              <input
-                type="number"
-                name="budget"
-                value={formData.budget}
-                onChange={handleChange}
-                className="w-full rounded-xl border p-3"
-              />
-
-              {errors.budget && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.budget}
-                </p>
-              )}
-
-            </div>
-
           </div>
 
-          {/* Buttons */}
-
+          {/* Action Buttons */}
           <div className="flex justify-end gap-4">
-
             <button
               type="button"
-              onClick={() => navigate("/freight-owner/dashboard")}
+              onClick={() => navigate("/transporter/dashboard")}
               className="px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-100"
             >
               Cancel
@@ -393,16 +320,13 @@ function PostLoad() {
               className="px-6 py-3 rounded-xl bg-slate-900 text-white hover:bg-slate-800 flex items-center gap-2"
             >
               <Save size={18} />
-              Publish Load
+              Publish Truck
             </button>
-
           </div>
-
         </form>
-
       </div>
     </Layout>
   );
 }
 
-export default PostLoad; 
+export default PostTruck;
