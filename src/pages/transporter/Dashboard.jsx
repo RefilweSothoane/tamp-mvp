@@ -3,7 +3,7 @@ import {
   Truck,
   Package,
   MapPinned,
-  DollarSign,
+  HandCoins,
   PlusCircle,
   Clock3,
   CheckCircle2,
@@ -17,29 +17,29 @@ function TransporterDashboard() {
     {
       title: "Available Trucks",
       value: "12",
-      subtitle: "Ready for loads",
+      
       icon: Truck,
       bgColor: "bg-[#EEF3F9]",
     },
     {
       title: "Active Deliveries",
       value: "5",
-      subtitle: "Currently in transit",
+      
       icon: Package,
       bgColor: "bg-[#EEF3F9]",
     },
     {
       title: "Pending Matches",
       value: "8",
-      subtitle: "Awaiting response",
+      
       icon: Clock3,
       bgColor: "bg-[#EEF3F9]",
     },
     {
       title: "Monthly Earnings",
       value: "R 126,500",
-      subtitle: "+18% from last month",
-      icon: DollarSign,
+      
+      icon: HandCoins,
       bgColor: "bg-[#EFF0A3]",
     },
   ];

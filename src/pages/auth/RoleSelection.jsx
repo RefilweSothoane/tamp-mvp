@@ -70,12 +70,12 @@ function RoleSelection() {
             
             {/* Pure White Header */}
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
-              Post new load
+              Select Your Operating Role
             </h1>
             
             {/* Light Neutral Grey Subtitle */}
             <p className="text-zinc-400 text-sm md:text-base mt-2 font-medium">
-              Select your operating role below to configure your dispatch workflow.
+              Choose the perspective that best fits your operational needs to access the appropriate dashboard and features.
             </p>
           </div>
 
