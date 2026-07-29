@@ -16,7 +16,7 @@ const freightOwnerNavItems = [
   { path: "/freight-owner/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { path: "/freight-owner/post-load", label: "Post Load", icon: PackagePlus },
   { path: "/freight-owner/my-loads", label: "My Loads", icon: Package },
-  { path: "/matches", label: "Match Recommendations", icon: GitCompare },
+  { path: "/freight-owner/matches", label: "Match Recommendations", icon: GitCompare },
   { path: "/tracking", label: "Trip Tracking", icon: MapPin },
   { path: "/profile", label: "Profile", icon: User },
 ];
@@ -25,7 +25,7 @@ const transporterNavItems = [
   { path: "/transporter/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { path: "/transporter/post-truck", label: "Post Truck", icon: Truck },
   { path: "/transporter/my-trucks", label: "My Trucks", icon: ClipboardList },
-  { path: "/loads", label: "Available Loads", icon: Package },
+  { path: "/transporter/loads", label: "Available Loads", icon: Package },
   { path: "/tracking", label: "Trip Tracking", icon: MapPin },
   { path: "/profile", label: "Profile", icon: User },
 ];

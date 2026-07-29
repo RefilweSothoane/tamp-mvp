@@ -1,71 +1,70 @@
 import Layout from "../../components/layout/Layout";
+import { useNavigate } from "react-router-dom";
 import {
   MapPin,
   Truck,
   Star,
   ArrowRight,
-  ShieldCheck,
-  Clock3,
-  BadgeCheck,
+  CheckCircle2,
+  XCircle,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 const transporters = [
   {
     id: 1,
     company: "Swift Logistics",
     match: "98%",
-    rating: "4.9",
-    reviews: 241,
     location: "Johannesburg",
     vehicle: "Superlink Truck",
-    availability: "Available Today",
     price: "R18 500",
-    verified: true,
-    tracking: true,
-    crossBorder: true,
+    reasons: [
+      "Truck capacity matches your cargo",
+      "Available on pickup date",
+      "Located near pickup location",
+      "Verified transporter",
+    ],
   },
   {
     id: 2,
     company: "Cargo Express",
     match: "95%",
-    rating: "4.8",
-    reviews: 187,
     location: "Pretoria",
     vehicle: "Flatbed Truck",
-    availability: "Available Tomorrow",
     price: "R17 800",
-    verified: true,
-    tracking: true,
-    crossBorder: false,
+    reasons: [
+      "Competitive pricing",
+      "Available immediately",
+      "High customer rating",
+      "Suitable vehicle type",
+    ],
   },
   {
     id: 3,
     company: "TransMove SA",
     match: "92%",
-    rating: "4.7",
-    reviews: 159,
     location: "Bloemfontein",
     vehicle: "Refrigerated Truck",
-    availability: "Available Today",
     price: "R20 100",
-    verified: true,
-    tracking: true,
-    crossBorder: true,
+    reasons: [
+      "Refrigerated vehicle available",
+      "Experienced transporter",
+      "Available on requested dates",
+      "Excellent delivery record",
+    ],
   },
   {
     id: 4,
     company: "Road Freight Pro",
     match: "90%",
-    rating: "4.6",
-    reviews: 121,
     location: "Durban",
-    vehicle: "Curtain Side",
-    availability: "Available in 2 Days",
+    vehicle: "Curtain Side Truck",
     price: "R19 000",
-    verified: true,
-    tracking: false,
-    crossBorder: true,
+    reasons: [
+      "Verified transporter",
+      "Affordable quote",
+      "Reliable fleet",
+      "Suitable capacity",
+    ],
   },
 ];
 
@@ -78,7 +77,7 @@ function MatchRecommendations() {
 
         {/* Header */}
 
-        <div className="flex items-center justify-between mb-10">
+        <div className="flex justify-between items-center mb-10">
 
           <div>
             <h1 className="text-4xl font-bold text-slate-900">
@@ -86,11 +85,11 @@ function MatchRecommendations() {
             </h1>
 
             <p className="text-slate-500 mt-2">
-              TAMP analysed your shipment and found the best transporters.
+              TAMP analysed your shipment and found the best transporters for your load.
             </p>
           </div>
 
-          <div className="bg-slate-900 text-white rounded-xl px-6 py-4 text-center">
+          <div className="bg-slate-900 text-white rounded-2xl px-6 py-5 text-center">
             <p className="text-3xl font-bold">
               {transporters.length}
             </p>
@@ -102,18 +101,20 @@ function MatchRecommendations() {
 
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        {/* Cards */}
+
+        <div className="grid lg:grid-cols-2 gap-8">
 
           {transporters.map((company) => (
 
             <div
               key={company.id}
-              className="bg-white rounded-3xl border shadow-sm hover:shadow-xl transition duration-300 overflow-hidden"
+              className="bg-white rounded-3xl border shadow-sm hover:shadow-xl transition p-7"
             >
 
               {/* Top */}
 
-              <div className="flex justify-between items-start p-6 border-b">
+              <div className="flex justify-between items-start">
 
                 <div>
 
@@ -129,120 +130,92 @@ function MatchRecommendations() {
                     />
 
                     <span className="font-semibold">
-                      {company.rating}
-                    </span>
-
-                    <span className="text-slate-400">
-                      ({company.reviews} reviews)
+                      {company.match} Match
                     </span>
 
                   </div>
 
                 </div>
 
-                <div className="bg-green-100 text-green-700 rounded-full px-4 py-2 font-bold">
-                  {company.match}
-                </div>
+                <Truck
+                  className="text-slate-700"
+                  size={30}
+                />
 
               </div>
 
-              {/* Body */}
+              {/* Details */}
 
-              <div className="p-6 space-y-5">
+              <div className="mt-7 space-y-4 text-slate-700">
 
-                <div className="flex items-center gap-3 text-slate-700">
-                  <MapPin size={20} />
+                <div className="flex items-center gap-3">
+                  <MapPin size={18} />
                   {company.location}
                 </div>
 
-                <div className="flex items-center gap-3 text-slate-700">
-                  <Truck size={20} />
+                <div className="flex items-center gap-3">
+                  <Truck size={18} />
                   {company.vehicle}
                 </div>
 
-                <div className="flex items-center gap-3 text-slate-700">
-                  <Clock3 size={20} />
-                  {company.availability}
+                <div>
+                  <span className="font-semibold">
+                    Estimated Cost:
+                  </span>{" "}
+                  {company.price}
                 </div>
 
-                <div className="bg-slate-50 rounded-xl p-4">
+              </div>
 
-                  <h3 className="font-semibold mb-3">
-                    Services
-                  </h3>
+              {/* Reasons */}
 
-                  <div className="space-y-2 text-sm">
+              <div className="mt-7 bg-slate-50 rounded-2xl p-5">
 
-                    {company.verified && (
-                      <div className="flex items-center gap-2">
-                        <BadgeCheck
-                          size={16}
-                          className="text-green-600"
-                        />
-                        Verified Transporter
-                      </div>
-                    )}
+                <h3 className="font-semibold text-slate-900 mb-4">
+                  Why this transporter?
+                </h3>
 
-                    {company.tracking && (
-                      <div className="flex items-center gap-2">
-                        <ShieldCheck
-                          size={16}
-                          className="text-green-600"
-                        />
-                        GPS Tracking Available
-                      </div>
-                    )}
+                <div className="space-y-3">
 
-                    {company.crossBorder && (
-                      <div className="flex items-center gap-2">
-                        <ShieldCheck
-                          size={16}
-                          className="text-green-600"
-                        />
-                        Cross-border Licensed
-                      </div>
-                    )}
+                  {company.reasons.map((reason, index) => (
 
-                  </div>
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 text-sm text-slate-600"
+                    >
 
-                </div>
+                      <CheckCircle2
+                        size={18}
+                        className="text-green-600"
+                      />
 
-                <div className="flex justify-between items-center pt-3">
+                      <span>{reason}</span>
 
-                  <div>
+                    </div>
 
-                    <p className="text-sm text-slate-500">
-                      Estimated Cost
-                    </p>
-
-                    <h3 className="text-2xl font-bold">
-                      {company.price}
-                    </h3>
-
-                  </div>
+                  ))}
 
                 </div>
 
               </div>
 
-              {/* Footer */}
+              {/* Buttons */}
 
-              <div className="border-t p-6 flex gap-3">
+              <div className="flex gap-4 mt-8">
 
                 <button
-                  className="flex-1 rounded-xl border border-slate-300 py-3 font-semibold hover:bg-slate-100 transition"
+                  className="flex-1 border border-red-300 text-red-600 rounded-xl py-3 hover:bg-red-50 flex items-center justify-center gap-2 transition"
                 >
-                  View Profile
+                  <XCircle size={18} />
+                  Reject
                 </button>
 
                 <button
                   onClick={() => navigate("/confirmation")}
-                  className="flex-1 rounded-xl bg-slate-900 text-white py-3 font-semibold flex justify-center items-center gap-2 hover:bg-slate-800 transition"
+                  className="flex-1 bg-slate-900 text-white rounded-xl py-3 hover:bg-slate-800 flex items-center justify-center gap-2 transition"
                 >
-                  Accept Match
-
+                  Accept
                   <ArrowRight size={18} />
-
                 </button>
 
               </div>
