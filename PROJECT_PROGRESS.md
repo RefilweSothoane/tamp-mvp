@@ -15,7 +15,7 @@
 - [x] Authentication
 - [x] Freight Owner Dashboard
 - [x] Transporter Dashboard
-- [ ] Admin Dashboard
+- [x] Admin Dashboard
 - [x] Load Posting
 - [x] Truck Registration
 - [x] Match Recommendations
