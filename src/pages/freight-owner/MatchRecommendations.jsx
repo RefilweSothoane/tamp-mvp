@@ -80,21 +80,21 @@ function MatchRecommendations() {
         <div className="flex justify-between items-center mb-10">
 
           <div>
-            <h1 className="text-4xl font-bold text-slate-900">
+            <h1 className="text-4xl font-bold text-white tracking-tight">
               Match Recommendations
             </h1>
 
-            <p className="text-slate-500 mt-2">
+            <p className="text-zinc-400 mt-2">
               TAMP analysed your shipment and found the best transporters for your load.
             </p>
           </div>
 
-          <div className="bg-slate-900 text-white rounded-2xl px-6 py-5 text-center">
+          <div className="bg-zinc-950 border border-zinc-800 rounded-2xl px-6 py-5 text-center">
             <p className="text-3xl font-bold">
               {transporters.length}
             </p>
 
-            <p className="text-sm text-slate-300">
+            <p className="text-zinc-500 text-sm">
               Matches Found
             </p>
           </div>
@@ -109,7 +109,7 @@ function MatchRecommendations() {
 
             <div
               key={company.id}
-              className="bg-white rounded-3xl border shadow-sm hover:shadow-xl transition p-7"
+              className="bg-white rounded-3xl border border-zinc-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 p-7"
             >
 
               {/* Top */}
@@ -118,11 +118,11 @@ function MatchRecommendations() {
 
                 <div>
 
-                  <h2 className="text-2xl font-bold text-slate-900">
+                  <h2 className="text-2xl font-bold text-zinc-900">
                     {company.company}
                   </h2>
 
-                  <div className="flex items-center gap-2 mt-3">
+                  <div className="inline-flex items-center gap-2 mt-4 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200">
 
                     <Star
                       size={18}
@@ -137,16 +137,17 @@ function MatchRecommendations() {
 
                 </div>
 
-                <Truck
-                  className="text-slate-700"
-                  size={30}
-                />
-
-              </div>
+                <div className="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center">
+    <Truck
+        className="text-violet-600"
+        size={28}
+    />
+</div>
+</div>
 
               {/* Details */}
 
-              <div className="mt-7 space-y-4 text-slate-700">
+              <div className="mt-7 space-y-4 text-zinc-700">
 
                 <div className="flex items-center gap-3">
                   <MapPin size={18} />
@@ -159,7 +160,7 @@ function MatchRecommendations() {
                 </div>
 
                 <div>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-emerald-700 text-sm">
                     Estimated Cost:
                   </span>{" "}
                   {company.price}
@@ -169,9 +170,9 @@ function MatchRecommendations() {
 
               {/* Reasons */}
 
-              <div className="mt-7 bg-slate-50 rounded-2xl p-5">
+              <div className="mt-7 bg-zinc-50 rounded-2xl border border-zinc-200 p-5">
 
-                <h3 className="font-semibold text-slate-900 mb-4">
+                <h3 className="font-semibold text-zinc-900 mb-4">
                   Why this transporter?
                 </h3>
 
@@ -186,7 +187,7 @@ function MatchRecommendations() {
 
                       <CheckCircle2
                         size={18}
-                        className="text-green-600"
+                        className="text-emerald-500"
                       />
 
                       <span>{reason}</span>
@@ -204,7 +205,7 @@ function MatchRecommendations() {
               <div className="flex gap-4 mt-8">
 
                 <button
-                  className="flex-1 border border-red-300 text-red-600 rounded-xl py-3 hover:bg-red-50 flex items-center justify-center gap-2 transition"
+                  className="flex-1 rounded-xl border border-zinc-300 bg-white text-zinc-700 py-3 hover:bg-zinc-100 flex items-center justify-center gap-2 transition-all"
                 >
                   <XCircle size={18} />
                   Reject
@@ -212,17 +213,16 @@ function MatchRecommendations() {
 
                 <button
                   onClick={() => navigate("/confirmation")}
-                  className="flex-1 bg-slate-900 text-white rounded-xl py-3 hover:bg-slate-800 flex items-center justify-center gap-2 transition"
+                  className="flex-1 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white py-3 hover:from-violet-500 hover:to-indigo-500 flex items-center justify-center gap-2 transition-all shadow-lg shadow-violet-500/20"
                 >
                   Accept
                   <ArrowRight size={18} />
                 </button>
 
               </div>
-
             </div>
 
-          ))}
+                 ))} 
 
         </div>
 
