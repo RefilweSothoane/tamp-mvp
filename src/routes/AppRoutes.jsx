@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "../pages/auth/Login";
+import Loads from "../pages/transporter/Loads";
 import Register from "../pages/auth/Register";
 import RoleSelection from "../pages/auth/RoleSelection";
 import Dashboard from "../pages/freight-owner/Dashboard";
@@ -48,6 +49,7 @@ function AppRoutes() {
         <Route path="/admin/users" element={<UsersManagement />} />
         <Route path="/admin/analytics" element={<AdminAnalytics />} />
         <Route path="/ratings" element={<Ratings />} />
+        <Route path="/transporter/loads" element={<Loads />} />
       </Routes>
 
     </BrowserRouter>
