@@ -103,7 +103,7 @@ function PostLoad() {
               Back to Dashboard
             </button>
 
-            <h1 className="text-4xl font-bold text-white">
+            <h1 className="text-4xl font-bold text-white tracking-tight">
   Post New Load
 </h1>
 
