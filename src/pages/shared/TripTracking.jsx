@@ -31,7 +31,7 @@ function TripTracking() {
 
           <div>
 
-            <h1 className="text-4xl font-bold text-slate-900">
+            <h1 className="text-4xl font-bold text-white tracking-tight">
               Trip Tracking
             </h1>
 
@@ -230,7 +230,7 @@ function TripTracking() {
 
           <button
             onClick={() => navigate("/ratings")}
-            className="bg-slate-900 text-white rounded-xl px-6 py-3 hover:bg-slate-800"
+            className="px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white flex items-center gap-2 transition-all"
           >
             Complete Delivery
           </button>
