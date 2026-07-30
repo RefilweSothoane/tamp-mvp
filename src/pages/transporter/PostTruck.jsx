@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
-import { ArrowLeft, Save, Truck } from "lucide-react";
+import { ArrowLeft, Save } from "lucide-react";
 
 function PostTruck() {
   const navigate = useNavigate();
@@ -86,8 +86,8 @@ function PostTruck() {
               Back to Dashboard
             </button>
 
-            <h1 className="text-4xl font-bold text-slate-900 flex items-center gap-3">
-              <Truck size={36} className="text-slate-800" />
+            <h1 className="text-4xl font-bold text-white tracking-tight">
+              
               Post Available Truck
             </h1>
 
@@ -317,7 +317,7 @@ function PostTruck() {
 
             <button
               type="submit"
-              className="px-6 py-3 rounded-xl bg-slate-900 text-white hover:bg-slate-800 flex items-center gap-2"
+              className="px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white flex items-center gap-2 transition-all"
             >
               <Save size={18} />
               Publish Truck
