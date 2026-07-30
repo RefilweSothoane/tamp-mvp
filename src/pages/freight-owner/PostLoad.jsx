@@ -97,13 +97,13 @@ function PostLoad() {
 
             <button
               onClick={() => navigate("/freight-owner/dashboard")}
-              className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 mb-3"
+              className="flex items-center gap-2 text-sm text-zinc-500 hover:text-violet-600 transition mb-3"
             >
               <ArrowLeft size={18} />
               Back to Dashboard
             </button>
 
-            <h1 className="text-4xl font-bold text-slate-900">
+            <h1 className="text-4xl font-bold text-white">
   Post New Load
 </h1>
 
@@ -114,14 +114,14 @@ function PostLoad() {
 
           </div>
 
-          <span className="px-4 py-2 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">
+          <span className="px-4 py-2 rounded-full bg-amber-100 text-amber-700 border border-amber-200 text-sm font-semibold">
             Draft
           </span>
 
         </div>
 
         {success && (
-          <div className="mb-6 rounded-xl bg-green-100 border border-green-300 p-4 text-green-700">
+          <div className="mb-6 rounded-xl bg-emerald-50 border border-emerald-200 p-4 text-emerald-700">
             ✅ Load published successfully!
           </div>
         )}
@@ -130,9 +130,9 @@ function PostLoad() {
 
           {/* Cargo */}
 
-          <div className="bg-white rounded-2xl shadow-sm p-6">
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
 
-            <h2 className="text-xl font-semibold mb-6">
+            <h2 className="text-xl font-bold text-slate-900 mb-6">
               Cargo Information
             </h2>
 
@@ -140,7 +140,7 @@ function PostLoad() {
 
               <div>
 
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Cargo Type
                 </label>
 
@@ -229,7 +229,7 @@ function PostLoad() {
                   name="pickupLocation"
                   value={formData.pickupLocation}
                   onChange={handleChange}
-                  className="w-full rounded-xl border p-3"
+                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition-all"
                 />
 
                 {errors.pickupLocation && (
@@ -255,7 +255,7 @@ function PostLoad() {
                 />
 
                 {errors.deliveryLocation && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-red-600 text-sm mt-1">
                     {errors.deliveryLocation}
                   </p>
                 )}
@@ -322,11 +322,12 @@ function PostLoad() {
 
               <label className="flex items-center gap-3">
                 <input
-                  type="checkbox"
-                  name="refrigerated"
-                  checked={formData.refrigerated}
-                  onChange={handleChange}
-                />
+  type="checkbox"
+  name="insurance"
+  checked={formData.insurance}
+  onChange={handleChange}
+  className="w-4 h-4 accent-violet-600 rounded"
+/>
                 Refrigerated Truck
               </label>
 
@@ -336,6 +337,7 @@ function PostLoad() {
                   name="hazardous"
                   checked={formData.hazardous}
                   onChange={handleChange}
+                  className="w-4 h-4 accent-violet-600 rounded"
                 />
                 Hazardous Materials
               </label>
@@ -346,6 +348,7 @@ function PostLoad() {
                   name="insurance"
                   checked={formData.insurance}
                   onChange={handleChange}
+                  className="w-4 h-4 accent-violet-600 rounded"
                 />
                 Insurance Required
               </label>
@@ -390,7 +393,7 @@ function PostLoad() {
 
             <button
               type="submit"
-              className="px-6 py-3 rounded-xl bg-slate-900 text-white hover:bg-slate-800 flex items-center gap-2"
+              className="px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white flex items-center gap-2 transition-all"
             >
               <Save size={18} />
               Publish Load
