@@ -21,62 +21,72 @@ const recentLoads = [
   },
 ];
 
-// Helper to style status badges cleanly
 const getStatusStyles = (status) => {
   switch (status) {
     case "Matching":
-      return "bg-amber-50 text-amber-700 border-amber-200";
+      return "bg-amber-500/10 text-amber-400 border-amber-500/20";
     case "In Transit":
-      return "bg-blue-50 text-blue-700 border-blue-200";
+      return "bg-cyan-500/10 text-cyan-400 border-cyan-500/20";
     case "Delivered":
-      return "bg-emerald-50 text-emerald-700 border-emerald-200";
+      return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
     default:
-      return "bg-slate-100 text-slate-600 border-slate-200";
+      return "bg-zinc-800 text-zinc-400 border-zinc-700";
   }
 };
 
 function RecentLoads() {
   return (
-    <div className="bg-[#EEF3F9] rounded-2xl p-6 border border-slate-200/60">
+    <div className="bg-zinc-950 rounded-2xl p-6 border border-zinc-800">
+      {/* Header */}
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-bold text-slate-900">Recent Loads</h2>
+        <h2 className="text-xl font-bold text-white">
+          Recent Loads
+        </h2>
 
-        <button className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">
+        <button className="text-sm font-medium text-violet-400 hover:text-violet-300 transition">
           View All
         </button>
       </div>
 
-      <div className="space-y-3">
+      {/* Load Cards */}
+      <div className="space-y-4">
         {recentLoads.map((load) => (
           <div
             key={load.id}
-            className="bg-white rounded-xl p-4 flex justify-between items-center border border-slate-200/80 shadow-sm"
+            className="bg-zinc-900 rounded-xl p-5 border border-zinc-800 hover:border-violet-500/30 transition-all"
           >
-            <div>
-              <div className="flex items-center gap-2 text-sm font-semibold text-slate-800">
-                <MapPin size={16} className="text-slate-400" />
+            <div className="flex items-center justify-between">
 
-                <span>{load.origin}</span>
+              <div>
+                <div className="flex items-center gap-2 text-sm font-semibold text-white">
+                  <MapPin size={16} className="text-violet-400" />
 
-                <ArrowRight size={14} className="text-slate-400" />
+                  <span>{load.origin}</span>
 
-                <span>{load.destination}</span>
+                  <ArrowRight
+                    size={14}
+                    className="text-zinc-500"
+                  />
+
+                  <span>{load.destination}</span>
+                </div>
+
+                <div className="mt-3">
+                  <span
+                    className={`text-xs font-semibold px-3 py-1 rounded-full border ${getStatusStyles(
+                      load.status
+                    )}`}
+                  >
+                    {load.status}
+                  </span>
+                </div>
               </div>
 
-              <div className="mt-2">
-                <span
-                  className={`text-xs font-medium px-2.5 py-1 rounded-full border ${getStatusStyles(
-                    load.status
-                  )}`}
-                >
-                  {load.status}
-                </span>
-              </div>
+              <button className="bg-violet-600 hover:bg-violet-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                Details
+              </button>
+
             </div>
-
-            <button className="text-sm bg-slate-900 text-white px-4 py-2 rounded-lg font-medium hover:bg-slate-800 transition">
-              Details
-            </button>
           </div>
         ))}
       </div>
