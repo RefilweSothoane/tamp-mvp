@@ -64,7 +64,7 @@ The project followed a simplified Software Development Life Cycle (SDLC) consist
 
 ### Activities
 
-- Read and analysed the Business Requirements Specification (BRS).
+- Read and discussed the Business Requirements Specification (BRS).
 - Identified the three platform users:
   - Freight Owner
   - Transporter

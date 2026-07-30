@@ -102,8 +102,6 @@ The application displays different navigation menus depending on whether the use
 
 ### Mock Data
 
-Instead of connecting to a backend API, the application uses mock JSON data and React state to simulate real business data.
-
 ### Responsive Design
 
 Tailwind CSS was used to ensure that pages remain usable across desktop and tablet screen sizes.

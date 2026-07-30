@@ -7,7 +7,7 @@ This document maps each functional requirement (FR-01 to FR-12) from the assessm
 
 | Requirement ID | Requirement | Frontend Implementation | Status |
 |----------------|-------------|-------------------------|--------|
-| **FR-01** | Role-based registration/login for Freight Owner, Transporter and Admin | Login, Register, Forgot Password, Role Selection, Role-based Sidebar Navigation | ✅ Complete |
+| **FR-01** | Role-based registration/login for Freight Owner, Transporter and Admin | Login, Register, Role Selection, Role-based Sidebar Navigation | ✅ Complete |
 | **FR-02** | Basic identity/compliance information and simulated document upload or metadata | Compliance page with verification status and mock compliance information | 🟡 Partial |
 | **FR-03** | Freight Owner can create and view cargo loads | Post Load page, My Loads page | ✅ Complete |
 | **FR-04** | Transporter can create and view available trucks | Post Truck page, My Trucks page | ✅ Complete |
