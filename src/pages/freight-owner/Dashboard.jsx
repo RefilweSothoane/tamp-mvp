@@ -10,38 +10,29 @@ function Dashboard() {
     <Layout role="freight-owner">
       <Greeting name="Refilwe" />
 
-  <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-    {dashboardStats.map((stat) => (
-      <StatsCard
-        key={stat.title}
-        title={stat.title}
-        value={stat.value}
-        subtitle={stat.subtitle}
-        icon={stat.icon}
-        bgColor={stat.bgColor}
-      />
-    ))}
-  </div>
-  <div className="grid gap-6 mt-8 lg:grid-cols-3">
-  <div className="lg:col-span-2">
-    <RecentLoads />
-  </div>
-
-  <QuickActions />
-</div>
-</Layout>
-  );
-}
-<div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-    {dashboardStats.map((stat) => (
-        <StatsCard
+      {/* Statistics */}
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {dashboardStats.map((stat) => (
+          <StatsCard
             key={stat.title}
             title={stat.title}
             value={stat.value}
-            subtitle={stat.subtitle}
             icon={stat.icon}
-            bgColor={stat.bgColor}
-        />
-    ))}
-</div>
+            accent={stat.accent}
+          />
+        ))}
+      </div>
+
+      {/* Main Dashboard Content */}
+      <div className="grid gap-6 mt-8 lg:grid-cols-3">
+        <div className="lg:col-span-2">
+          <RecentLoads />
+        </div>
+
+        <QuickActions />
+      </div>
+    </Layout>
+  );
+}
+
 export default Dashboard;

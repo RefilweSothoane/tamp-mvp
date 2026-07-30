@@ -1,24 +1,26 @@
-import { Truck, ClipboardList, CircleCheck } from "lucide-react";
+import {
+  Truck,
+  ClipboardList,
+  CircleCheck,
+} from "lucide-react";
 
 export const dashboardStats = [
   {
     title: "Active Loads",
     value: 24,
-    
     icon: Truck,
-    bgColor: "bg-white",
+    accent: "violet",
   },
   {
     title: "Pending Matches",
     value: 7,
     icon: ClipboardList,
-    bgColor: "bg-[#EEF3F9]",
+    accent: "emerald",
   },
   {
     title: "Completed Deliveries",
     value: 186,
-    
     icon: CircleCheck,
-    bgColor: "bg-[#EFF0A3]",
+    accent: "cyan",
   },
 ];
