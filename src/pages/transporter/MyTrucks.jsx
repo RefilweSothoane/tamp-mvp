@@ -7,6 +7,7 @@ import {
   Eye,
   Plus,
   Wrench,
+  Weight,
 } from "lucide-react";
 
 const trucks = [
@@ -39,116 +40,117 @@ const trucks = [
 function MyTrucks() {
   const navigate = useNavigate();
 
-  const statusColor = (status) => {
+  const getStatusBadge = (status) => {
     switch (status) {
       case "Available":
-        return "bg-green-100 text-green-700";
+        return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
       case "On Trip":
-        return "bg-blue-100 text-blue-700";
+        return "bg-cyan-500/10 text-cyan-400 border-cyan-500/20";
       case "Maintenance":
-        return "bg-red-100 text-red-700";
+        return "bg-amber-500/10 text-amber-400 border-amber-500/20";
       default:
-        return "bg-slate-100 text-slate-700";
+        return "bg-zinc-800 text-zinc-400 border-zinc-700";
     }
   };
 
   return (
     <Layout role="transporter">
-      <div className="max-w-7xl mx-auto">
-
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-4xl font-bold text-slate-900">
-              My Trucks
-            </h1>
-
-            <p className="text-slate-500 mt-2">
-              Manage all trucks registered on TAMP.
-            </p>
-          </div>
-
-          <button
-            onClick={() => navigate("/transporter/post-truck")}
-            className="bg-slate-900 text-white px-5 py-3 rounded-xl hover:bg-slate-800 flex items-center gap-2"
-          >
-            <Plus size={18} />
-            Register Truck
-          </button>
-        </div>
-
-        <div className="grid gap-6">
-
-          {trucks.map((truck) => (
-
-            <div
-              key={truck.id}
-              className="bg-white rounded-2xl border shadow-sm p-6 hover:shadow-md transition"
-            >
-
-              <div className="flex justify-between items-start">
-
-                <div>
-                  <div className="flex items-center gap-3">
-                    <Truck className="text-slate-700" />
-                    <h2 className="text-xl font-semibold">
-                      {truck.type}
-                    </h2>
-                  </div>
-
-                  <p className="text-sm text-slate-500 mt-2">
-                    Truck ID: {truck.id}
-                  </p>
-                </div>
-
-                <span
-                  className={`px-4 py-2 rounded-full text-sm font-semibold ${statusColor(
-                    truck.available
-                  )}`}
-                >
-                  {truck.available}
-                </span>
-
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-6 mt-6">
-
-                <div className="flex items-center gap-2 text-slate-600">
-                  <MapPin size={18} />
-                  {truck.location}
-                </div>
-
-                <div className="flex items-center gap-2 text-slate-600">
-                  <Truck size={18} />
-                  {truck.capacity}
-                </div>
-
-                <div className="flex items-center gap-2 text-slate-600">
-                  <Calendar size={18} />
-                  {truck.nextService}
-                </div>
-
-              </div>
-
-              <div className="flex justify-end gap-3 mt-6">
-
-                <button className="border border-slate-300 px-5 py-2 rounded-xl hover:bg-slate-100 flex items-center gap-2">
-                  <Eye size={18} />
-                  View Details
-                </button>
-
-                <button className="bg-slate-900 text-white px-5 py-2 rounded-xl hover:bg-slate-800 flex items-center gap-2">
-                  <Wrench size={18} />
-                  Edit Truck
-                </button>
-
-              </div>
-
+      <div className="min-h-screen bg-black text-white p-6 md:p-10 antialiased selection:bg-white selection:text-black">
+        <div className="max-w-7xl mx-auto space-y-8">
+          {/* Top Hero / Header Section */}
+          <section className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between bg-zinc-950 border border-zinc-800 p-6 lg:p-8 rounded-2xl overflow-hidden">
+            <div className="absolute right-0 top-0 w-64 h-64 bg-violet-600/10 blur-3xl rounded-full pointer-events-none" />
+            <div>
+              <h1 className="text-3xl font-bold text-white">My Fleet</h1>
+              <p className="text-zinc-400 text-sm md:text-base mt-1 font-medium">
+                Manage all trucks registered on TAMP.
+              </p>
             </div>
 
-          ))}
+            <button
+              onClick={() => navigate("/transporter/post-truck")}
+              className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all shadow-lg shadow-violet-500/20 cursor-pointer"
+            >
+              <Plus size={18} />
+              Register Truck
+            </button>
+          </section>
 
+          {/* Truck Fleet Cards */}
+          <div className="grid gap-6">
+            {trucks.map((truck) => (
+              <div
+                key={truck.id}
+                className="bg-zinc-950 rounded-2xl border border-zinc-800 p-6 hover:border-zinc-700 transition-all shadow-sm"
+              >
+                {/* Header Row */}
+                <div className="flex flex-wrap justify-between items-start gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400">
+                      <Truck size={22} />
+                    </div>
+                    <div>
+                      <h2 className="text-xl font-bold text-white tracking-tight">
+                        {truck.type}
+                      </h2>
+                      <p className="text-xs text-zinc-500 font-mono mt-0.5">
+                        ID: {truck.id}
+                      </p>
+                    </div>
+                  </div>
+
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-bold border ${getStatusBadge(
+                      truck.available
+                    )}`}
+                  >
+                    {truck.available}
+                  </span>
+                </div>
+
+                {/* Info Grid */}
+                <div className="grid sm:grid-cols-3 gap-4 mt-6 pt-6 border-t border-zinc-900">
+                  <div className="flex items-center gap-3 text-zinc-300 text-sm">
+                    <MapPin size={18} className="text-zinc-500" />
+                    <div>
+                      <p className="text-xs text-zinc-500 font-medium">Location</p>
+                      <p className="font-semibold">{truck.location}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 text-zinc-300 text-sm">
+                    <Weight size={18} className="text-zinc-500" />
+                    <div>
+                      <p className="text-xs text-zinc-500 font-medium">Capacity</p>
+                      <p className="font-semibold">{truck.capacity}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 text-zinc-300 text-sm">
+                    <Calendar size={18} className="text-zinc-500" />
+                    <div>
+                      <p className="text-xs text-zinc-500 font-medium">Next Service</p>
+                      <p className="font-semibold">{truck.nextService}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Actions Row */}
+                <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-zinc-900/60">
+                  <button className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-zinc-300 hover:text-white transition-all text-sm font-semibold flex items-center gap-2 cursor-pointer">
+                    <Eye size={16} />
+                    View Details
+                  </button>
+
+                  <button className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-zinc-300 hover:text-white transition-all text-sm font-semibold flex items-center gap-2 cursor-pointer">
+                    <Wrench size={16} />
+                    Edit Truck
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-
       </div>
     </Layout>
   );
